@@ -1,0 +1,17 @@
+{
+  "name": "学习笔记 · 分类管理",
+  "description": "侧边栏快速记录、自动保存、支持标签与搜索",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "icons": { "32": "icons/icon32.png" },
+  "side_panel": {
+    "default_path": "sidebar.html"
+  },
+  "permissions": ["storage", "sidePanel", "contextMenus"],
+  "action": {
+    "default_title": "打开学习笔记"
+  },
+  "background": {
+    "service_worker": "sw.js"
+  }
+}

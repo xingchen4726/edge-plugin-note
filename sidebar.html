@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>学习笔记</title>
+  <link rel="stylesheet" href="sidebar.css">
+</head>
+<body>
+  <!-- 顶部搜索栏 - 始终显示 -->
+  <header>
+    <input id="search" placeholder="搜索标题/内容…">
+    <select id="tagFilter"><option value="">全部标签</option></select>
+    <button id="newBtn">+ 新笔记</button>
+  </header>
+
+  <!-- 主内容区域 -->
+  <main>
+    <!-- 笔记列表模式 -->
+    <div id="listMode">
+      <ul id="list"></ul>
+    </div>
+
+    <!-- 内容编辑模式 -->
+    <div id="contentMode" hidden>
+      <div class="content-header">
+        <input id="titleInput" placeholder="笔记标题">
+        <input id="tagsInput" placeholder="标签（空格分隔）">
+      </div>
+      <textarea id="bodyInput" placeholder="笔记内容"></textarea>
+      <div class="action-bar">
+        <button id="saveBtn">保存</button>
+        <button id="cancelBtn">返回列表</button>
+        <button id="deleteBtn" class="danger">删除</button>
+        <button id="exportBtn">导出</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="sidebar.js"></script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+body {
+  font-family: system-ui;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* 顶部搜索栏 - 始终显示 */
+header {
+  display: flex;
+  gap: 6px;
+  padding: 6px;
+  background: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+  flex-shrink: 0;
+}
+
+header input, header select, header button {
+  padding: 4px 6px;
+  font-size: 13px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+header button {
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+header button:hover {
+  background: #0056b3;
+}
+
+/* 主内容区域 */
+main {
+  flex: 1;
+  overflow: auto;
+  padding: 6px;
+  position: relative; /* 添加相对定位 */
+}
+
+/* 笔记列表模式 */
+#listMode {
+  height: 100%;
+  width: 100%;
+  position: absolute; /* 使用绝对定位 */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 6px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+/* 内容编辑模式 */
+#contentMode {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  position: absolute; /* 使用绝对定位 */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 6px;
+  box-sizing: border-box;
+  gap: 10px;
+  background: white; /* 确保背景色 */
+  z-index: 10; /* 确保内容模式在列表模式之上 */
+}
+
+/* 确保隐藏的元素不占据空间 */
+#listMode[hidden],
+#contentMode[hidden] {
+  display: none !important;
+}
+
+#list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#list li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#list li:hover {
+  background: #f8f9fa;
+}
+
+#list li.selected {
+  background: #e3f2fd;
+  border-left: 3px solid #2196f3;
+}
+
+.note-title {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.note-tags {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 2px;
+}
+
+.note-date {
+  font-size: 10px;
+  color: #999;
+}
+
+.content-header {
+  display: flex;
+  gap: 10px;
+}
+
+.content-header input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.content-header input:read-only {
+  background-color: #f8f9fa;
+  border-color: #e9ecef;
+  color: #6c757d;
+}
+
+.content-header input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+#bodyInput {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  resize: vertical;
+  min-height: 200px;
+  font-family: inherit;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+#bodyInput:read-only {
+  background-color: #f8f9fa;
+  border-color: #e9ecef;
+  color: #6c757d;
+}
+
+#bodyInput:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* 编辑模式下的特殊样式 */
+.editing-mode #bodyInput:read-only,
+.editing-mode .content-header input:read-only {
+  background-color: white;
+  border-color: #007bff;
+  color: #212529;
+}
+
+.action-bar {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+.action-bar button {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.action-bar button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.danger {
+  background: #dc3545;
+  color: white;
+  border: none !important;
+}
+
+.danger:hover {
+  background: #c82333 !important;
+}
+
+#saveBtn {
+  background: #28a745;
+  color: white;
+  border: none;
+}
+
+#saveBtn:hover {
+  background: #218838;
+}
+
+#cancelBtn {
+  background: #6c757d;
+  color: white;
+  border: none;
+}
+
+#cancelBtn:hover {
+  background: #5a6268;
+}
